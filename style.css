@@ -13,21 +13,19 @@ body {
     background-color: #000;
     padding: 25px;
     border: 2px solid #00ff00; /* neon green border */
-    box-shadow: 0 0 15px #00ff00; /* subtle glow */
+    box-shadow: none; /* no glow shadows for strict retro */
 }
 
 /* === Headings === */
 h1 {
     text-align: center;
-    font-family: 'Courier New', monospace;
-    font-size: 32px;
+    font-size: 28px;
     color: #00ff00;
-    text-shadow: 0 0 5px #00ff00;
     margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 18px;
     color: #00ff00;
     border-bottom: 1px dashed #00ff00;
     padding-bottom: 5px;
@@ -62,6 +60,17 @@ input[type="number"], select {
     gap: 10px;
 }
 
+.option-group select {
+    flex-grow: 1;
+    background-color: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+}
+
+.option-group button {
+    flex-shrink: 0;
+}
+
 /* === Buttons === */
 button {
     padding: 8px 12px;
@@ -72,31 +81,27 @@ button {
     color: #00ff00;
     font-family: 'Courier New', monospace;
     cursor: pointer;
-    box-shadow: 0 0 5px #00ff00;
     transition: all 0.1s ease-in-out;
 }
 
 button:hover {
-    color: #fff;
-    text-shadow: 0 0 10px #00ff00;
-    box-shadow: 0 0 15px #00ff00;
+    background-color: #00ff00;
+    color: #000;
 }
 
 button:active {
     transform: translateY(1px);
-    box-shadow: 0 0 5px #00ff00;
 }
 
 /* Fully random button standout */
 #fully-random-btn {
-    color: #ff00ff; /* neon pink for contrast */
+    color: #ff00ff; /* neon pink */
     border-color: #ff00ff;
-    box-shadow: 0 0 10px #ff00ff;
 }
 
 #fully-random-btn:hover {
-    text-shadow: 0 0 15px #ff00ff;
-    box-shadow: 0 0 25px #ff00ff;
+    background-color: #ff00ff;
+    color: #000;
 }
 
 /* === Result / Output === */
@@ -105,8 +110,8 @@ button:active {
     padding: 15px;
     background-color: #000;
     border: 1px solid #00ff00;
-    box-shadow: 0 0 10px #00ff00;
     font-family: 'Courier New', monospace;
+    white-space: pre; /* preserve ASCII formatting */
 }
 
 /* Paragraphs in result */
@@ -115,15 +120,14 @@ button:active {
     font-size: 14px;
 }
 
-/* Option dropdown + random button alignment in retro style */
-.option-group select {
-    flex-grow: 1;
-    background-color: #000;
-    color: #00ff00;
+/* === ASCII-style boxes inside result === */
+.result-box {
     border: 1px solid #00ff00;
-    box-shadow: 0 0 5px #00ff00 inset;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-.option-group button {
-    flex-shrink: 0;
+.result-box-title {
+    font-weight: bold;
+    color: #00ff00;
 }
