@@ -1,10 +1,20 @@
+const fieldToDataKey = {
+  race: 'racesData',
+  class: 'classesData',
+  background: 'backgroundsData',
+  alignment: 'alignmentsData'
+};
+
 loadAllData().then(() => {
-  // Populate dropdowns with names
   ['race', 'class', 'background', 'alignment'].forEach(field => {
-    console.log('Data loaded:', window.dataStore); // <-- debug line
     const select = document.getElementById(field + '-select');
-    const dataArray = window.dataStore[field + 'sData'] || window.dataStore[field + 'Data']; // alignment is singular
-    select.innerHTML = '';
+    const dataKey = fieldToDataKey[field];
+    const dataArray = window.dataStore[dataKey];
+
+    if (!dataArray || dataArray.length === 0) return; // skip if no data
+
+    select.innerHTML = ''; // clear existing options
+
     dataArray.forEach(item => {
       const el = document.createElement('option');
       el.value = item.id;
