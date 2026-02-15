@@ -20,10 +20,20 @@ function generateCharacterObject(options) {
   return { level, race, charClass, background, alignment };
 }
 
-// Randomize a field
+const fieldToDataKey = {
+  race: 'racesData',
+  class: 'classesData',
+  background: 'backgroundsData',
+  alignment: 'alignmentsData'
+};
+
 function randomizeField(fieldName) {
-  const arrayName = fieldName + 'Data';
   const select = document.getElementById(fieldName + '-select');
-  const optionsArray = window.dataStore[arrayName];
-  select.value = randomChoice(optionsArray).id;
+  const dataKey = fieldToDataKey[fieldName];
+  const optionsArray = window.dataStore[dataKey];
+
+  if (!optionsArray || optionsArray.length === 0) return; // skip if no data
+
+  const choice = randomChoice(optionsArray);
+  select.value = choice.id;
 }
