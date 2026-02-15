@@ -111,7 +111,7 @@ button:active {
     background-color: #000;
     border: 1px solid #ffffff;
     font-family: 'Courier New', monospace;
-    white-space: pre; /* preserve ASCII formatting */
+    white-space: pre-line; /* preserve ASCII formatting */
 }
 
 /* Paragraphs in result */
@@ -124,6 +124,7 @@ button:active {
 .result-box {
     border: 1px solid #ffffff;
     padding: 10px;
+    line-height: 1.2;
     margin-bottom: 10px;
 }
 
