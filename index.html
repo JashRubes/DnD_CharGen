@@ -1,27 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>D&D Character Generator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>D&D Character Generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="character-generator">
+    <h1>D&D Character Generator</h1>
 
-<h1>D&D Character Generator</h1>
+    <label>
+      Character Level:
+      <input type="number" id="level-input" min="1" max="20" value="1">
+    </label>
 
-<p></p>Text text text.</p>
+    <div class="option-group">
+      <label>Race:
+        <select id="race-select"></select>
+      </label>
+      <button class="random-btn" data-target="race-select">Random Race</button>
+    </div>
 
-<label>
-    Character Level:
-    <input type="number" id="level-input" min="1" max="20" value="1">
-</label>
+    <div class="option-group">
+      <label>Class:
+        <select id="class-select"></select>
+      </label>
+      <button class="random-btn" data-target="class-select">Random Class</button>
+    </div>
 
-<h2>Classes</h2>
-<div id="class-section"></div>
+    <div class="option-group">
+      <label>Background:
+        <select id="background-select"></select>
+      </label>
+      <button class="random-btn" data-target="background-select">Random Background</button>
+    </div>
 
-<h2>Summary</h2>
-<div id="summary"></div>
+    <div class="option-group">
+      <label>Alignment:
+        <select id="alignment-select"></select>
+      </label>
+      <button class="random-btn" data-target="alignment-select">Random Alignment</button>
+    </div>
 
-<script type="module" src="main.js"></script>
+    <button id="generate-btn">Generate Character</button>
+    <button id="fully-random-btn">Fully Random Character</button>
 
+    <div id="result"></div>
+  </div>
+
+  <script src="loader.js"></script>
+  <script src="character.js"></script>
+  <script src="renderer.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
